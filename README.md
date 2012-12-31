@@ -1,8 +1,8 @@
-Epiphany/Parallella SDK
-=======================
+Epiphany SDK
+============
 
 This directory contains the sources and build scripts required to compile and
-test the Epiphany/Parallela SDK.
+test the Epiphany SDK.
 
 Prerequisites
 -------------
@@ -29,11 +29,11 @@ peers of this toolchain directory. If you have yet to clone this directory
 then the following commands are appropriate for creating a new directory
 with all the components in the correct location.
 
-    mkdir parallella
-    cd parallella
-    git clone git://github.com/parallella/parallella-gcc.git gcc
-    git clone git://github.com/parallella/parallella-src.git src
-    git clone git://github.com/parallella/parallella-sdk.git sdk
+    mkdir epiphany
+    cd epiphany
+    git clone git://github.com/parallella/epiphany-gcc.git gcc
+    git clone git://github.com/parallella/epiphany-src.git src
+    git clone git://github.com/parallella/epiphany-sdk.git sdk
     cd sdk
 
 
