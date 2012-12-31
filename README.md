@@ -32,8 +32,8 @@ with all the components in the correct location.
     mkdir epiphany
     cd epiphany
     git clone git://github.com/parallella/epiphany-gcc.git gcc
-    git clone git://github.com/parallella/epiphany-src.git src
-    git clone git://github.com/parallella/epiphany-sourceware.git sdk
+    git clone git://github.com/parallella/epiphany-sourceware.git src
+    git clone git://github.com/parallella/epiphany-sdk.git sdk
     cd sdk
 
 
