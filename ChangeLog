@@ -1,0 +1,3 @@
+2013-01-02  Simon Cook <simon.cook@embecosm.com>
+
+	* build-toolchain.sh: Disable building insight by default.

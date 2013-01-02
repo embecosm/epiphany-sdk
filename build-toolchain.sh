@@ -101,6 +101,7 @@ mkdir -p ${build_dir} && cd ${build_dir} \
     --enable-fast-install=N/A \
     --enable-languages=c,c++ --prefix=${install_dir} \
     --with-headers=${unified_src}/newlib/libc/include \
+    --disable-gdbtk \
     $CONFIG_EXTRA_OPTS >> "${logfile}" 2>&1
 if [ $? != 0 ]; then
   echo "Error: Configure failed."
