@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 #
 # Copyright (C) 2012 Embecosm Limited
 #
@@ -33,20 +33,20 @@
 
 absolutedir() {
   case ${1} in
-    /*) echo ${1} ;;
-    *)  echo ${PWD}/${1};;
+    /*) echo "${1}" ;;
+    *)  echo "${PWD}/${1}";;
   esac
 }
 
 symtree() {
-  find | (
+  ${FIND} | (
     read NAME || true
     while [ "$NAME" != "" ]; do
-      if ! [ -e $unisrc/$NAME ]; then
-        if [ -d $NAME ]; then
-          mkdir -p $unisrc/$NAME
+      if ! [ -e "$unisrc/$NAME" ]; then
+        if [ -d "$NAME" ]; then
+          mkdir -p "$unisrc/$NAME"
         else
-          ln -s $1/$NAME $unisrc/$NAME
+          ln -s "$1/$NAME" "$unisrc/$NAME"
 	fi
       fi
       read NAME || true
@@ -54,15 +54,22 @@ symtree() {
   )
 }
 
-unisrc=$(absolutedir $1)
+# If we are on a mac, we want to run a different find command
+if [ "$(uname -s 2>/dev/null)" = "Darwin" ]; then
+  FIND="find -f ."
+else
+  FIND="find"
+fi
+
+unisrc=$(absolutedir "$1")
 shift
-mkdir -p $1
-startdir=${PWD}
+mkdir -p "${unisrc}"
+startdir="${PWD}"
 
 for i in $*; do
-  cd ${startdir}
-  dir=$(absolutedir $i)
-  cd $dir
-  symtree $dir
+  cd "${startdir}"
+  dir=$(absolutedir "$i")
+  cd "$dir"
+  symtree "$dir"
 done
-  
+
