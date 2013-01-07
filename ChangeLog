@@ -1,3 +1,12 @@
+2013-01-07  Simon Cook <simon.cook@embecosm.com>
+	* build-toolchain.sh: Change build include headers directory
+	to no longer result in copying symlinks.
+
+2013-01-04  Simon Cook <simon.cook@embecosm.com>
+	* build-toolchain.sh: Added symlink support, more useful output
+	messages (install directory, etc), usage support.
+	* symlink-all: Added OS X fix from mrgs, now quits on error.
+
 2013-01-02  Simon Cook <simon.cook@embecosm.com>
 
 	* build-toolchain.sh: Disable building insight by default.
